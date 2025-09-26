@@ -1,15 +1,21 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\AkunModel;
 use App\Models\MainModel;
 use App\Models\NamaModel;
 use App\Models\AlamatModel;
+use App\Models\JabatanModel;
+use App\Models\PekerjaanLModel;
+use App\Models\PekerjaanModel;
+use App\Models\PendidikanModel;
+use App\Models\STR_SIPModel;
 
 class Main extends BaseController
 {
-    public function create()
+    public function index()
     {
-        return view('main/create');
+        return view('main/index');
     }
 
     public function store()
@@ -17,6 +23,12 @@ class Main extends BaseController
         $mainModel = new MainModel();
         $namaModel = new NamaModel();
         $alamatModel = new AlamatModel();
+        $pekerjaanModel = new PekerjaanModel();
+        $pekerjaanLModel = new PekerjaanLModel();
+        $jabatanModel = new JabatanModel();
+        $str_sipModel = new STR_SIPModel();
+        $pendidikanModel = new PendidikanModel();
+        $akunModel = new AkunModel();
 
         $validation = \Config\Services::validation();
         $validation->setRules([
@@ -63,7 +75,6 @@ class Main extends BaseController
             'twitter' => $this->request->getPost('twitter'),
             'pekerjaan_utama' => $this->request->getPost('pekerjaan_utama'),
             'pekerjaan_lain' => $this->request->getPost('pekerjaan_lain'),
-            'alamat_kerja' => $this->request->getPost('alamat_kerja'),
             'jabatan' => $this->request->getPost('jabatan'),
             'level' => $this->request->getPost('level'),
             'gaji' => $this->request->getPost('gaji'),
@@ -95,9 +106,62 @@ class Main extends BaseController
             'main_id' => $mainId,
         ];
 
+        $pekerjaanData = [
+            'tempat_kerja' => $this->request->getPost('tempat_kerja'),
+            'nama_tempat' => $this->request->getPost('nama_tempat'),
+            'alamat' => $this->request->getPost('alamat'),
+            'provinsi' => $this->request->getPost('provinsi'),
+            'kabupaten' => $this->request->getPost('kabupaten'),
+            'kecamatan' => $this->request->getPost('kecamatan'),
+            'kategori_wilayah' => $this->request->getPost('kategori_wilayah'),
+            'main_id' => $mainId,
+        ];
+
+        $pekerjaanLData = [
+            'alamat' => $this->request->getPost('alamat'),
+            'main_id' => $mainId,
+        ];
+
+        $jabatanData = [
+            'asn' => $this->request->getPost('asn'),
+            'non_asn' => $this->request->getPost('non_asn'),
+            'pemberi_layanan' => $this->request->getPost('pemberi_layanan'),
+            'main_id' => $mainId,
+        ];
+
+        $str_sipData = [
+            'str' => $this->request->getPost('str'),
+            'sipf1' => $this->request->getPost('sipf1'),
+            'sipf2' => $this->request->getPost('sipf2'),
+            'sipm1' => $this->request->getPost('sipm1'),
+            'sipm2' => $this->request->getPost('sipm2'),
+            'main_id' => $mainId,
+        ];
+
+        $pendidikanData = [
+            'sprg' => $this->request->getPost('sprg'),
+            'd3' => $this->request->getPost('d3'),
+            'd4_s1' => $this->request->getPost('d4_s1'),
+            's2' => $this->request->getPost('s2'),
+            's3' => $this->request->getPost('s3'),
+            'main_id' => $mainId,
+        ];
+
+        $akunData = [
+            'username' => $this->request->getPost('username'),
+            'password' => $this->request->getPost('password'),
+            'main_id' => $mainId,
+        ];
+
         $alamatModel->insert($alamatData);
         $namaModel->insert($namaData);
+        $pekerjaanModel->insert($pekerjaanData);
+        $pekerjaanLModel->insert($pekerjaanLData);
+        $jabatanModel->insert($jabatanData);
+        $str_sipModel->insert($str_sipData);
+        $pendidikanModel->insert($pendidikanData);
+        $akunModel->insert($akunData);
 
-        return redirect()->to('/main/create')->with('success', 'Data berhasil ditambahkan.');
+        return redirect()->to('/main')->with('success', 'Data berhasil ditambahkan.');
     }
 }

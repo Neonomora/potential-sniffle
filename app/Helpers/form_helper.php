@@ -59,3 +59,39 @@ if (!function_exists('form_textarea')) {
         HTML;
     }
 }
+
+if (!function_exists('form_radiobox')) {
+    function form_radiobox($label, $name, $options = [], $required = false, $attrs = []) {
+        $selected = old($name);
+        $requiredMark = $required ? ' *' : '';
+        $requiredAttr = $required ? 'required' : '';
+
+        echo "<div class='mb-3'>";
+        echo "<label class='form-label d-block'>$label$requiredMark</label>";
+
+        // Loop opsi radio button
+        foreach ($options as $value => $optionLabel) {
+            // Support jika $options hanya berupa array indexed tanpa key (value = option)
+            if (is_int($value)) {
+                $value = $optionLabel;
+            }
+
+            $checked = ($selected == $value) ? 'checked' : '';
+
+            // Buat atribut tambahan jika ada
+            $additionalAttrs = '';
+            foreach ($attrs as $key => $attrValue) {
+                $additionalAttrs .= " $key=\"$attrValue\"";
+            }
+
+            echo <<<HTML
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="$name" id="{$name}_{$value}" value="$value" $checked $requiredAttr $additionalAttrs>
+                <label class="form-check-label" for="{$name}_{$value}">$optionLabel</label>
+            </div>
+            HTML;
+        }
+
+        echo "</div>";
+    }
+}

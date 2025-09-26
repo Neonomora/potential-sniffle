@@ -3,11 +3,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class JabatanModel extends Model
+class PekerjaanLModel extends Model
 {
-    protected $table = 'jabatan';
+    protected $table = 'pekerjaan_lain';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'asn', 'non_asn', 'pemberi_layanan', 'main_id'
+       'alamat', 'main_id'
     ];
 }

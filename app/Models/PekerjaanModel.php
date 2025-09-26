@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 
 class PekerjaanModel extends Model
 {
-    protected $table = 'pekerjaan';
+    protected $table = 'pekerjaan_utama';
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'tempat_kerja', 'nama_tempat', 'alamat',
