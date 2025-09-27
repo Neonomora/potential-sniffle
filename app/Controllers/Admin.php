@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Controllers;
 
 class Admin extends BaseController
 {
-    public function dashboard(): string
+    public function index()
     {
-        return view('admin/dashboard');
+        return view('adminlte/index');
     }
 }

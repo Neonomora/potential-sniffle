@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/framework/main/create">form</a>
+    <a href="/framework/main/">form</a>
+    <a href="
+    
+    
+    /framework/public/adminlte/dist/index.html/">admin</a>
 </body>
 </html>
