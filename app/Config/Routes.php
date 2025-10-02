@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/admin', 'Admin::index');
+$routes->get('/form', 'Form::index');
 $routes->get('/main', 'Main::index');
 $routes->post('/main/store', 'Main::store');
 
