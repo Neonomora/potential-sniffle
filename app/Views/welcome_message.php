@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/framework/form-wrap/">form</a>
-    <a href="/framework/form-unwrap/">form</a>
+    <a href="/framework/form-wrap/">form-wrap</a>
+    <a href="/framework/form-unwrap/">form-unwrap</a>
 </body>
 </html>
