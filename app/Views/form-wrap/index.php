@@ -217,10 +217,10 @@
           <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
               <img
-                src="<?= base_url('public/adminlte/dist/assets/img/user2-160x160.jpg'); ?>"
+                src="<?= base_url('public/adminlte/dist/assets/img/gigachad.jpg'); ?>"
                 class="user-image rounded-circle shadow"
                 alt="User Image" />
-              <span class="d-none d-md-inline">Alexander Pierce</span>
+              <span class="d-none d-md-inline">Nama Sendiri</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
               <!--begin::User Image-->
